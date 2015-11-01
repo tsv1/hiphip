@@ -23,6 +23,14 @@ class Request:
 
     response = getattr(requests, self._method)(*args, **kwargs)
     response.body = response.text
+    content_type = response.headers.get('content-type')
+
+    if content_type and 'json' in content_type:
+      try:
+        response.body = json.loads(response.text)
+      except ValueError:
+        pass
+    
     return response
 
 
