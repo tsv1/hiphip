@@ -14,7 +14,7 @@ class Response(requests.Response):
         content_type = self.headers.get("content-type", "text/plain").lower()
         if content_type.startswith("text/") or content_type.endswith("/text"):
             r += "\n" + str(self.text)
-        elif content_type == "application/json":
+        elif content_type.startswith("application/json"):
             text = json.loads(self.text)
             r += "\n" + json.dumps(text, sort_keys=True, ensure_ascii=False, indent=2)
 
