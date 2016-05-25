@@ -63,7 +63,9 @@ class Client:
                 patched_data[key] = val
         return patched_data
 
-    def request(self, method, url,
+    def request(self,
+                method,
+                url,
                 params=None,
                 headers=None,
                 cookies=None,
@@ -140,7 +142,8 @@ class Client:
 
         return response
 
-    def head(self, url,
+    def head(self,
+             url,
              params=None,
              headers=None,
              cookies=None,
@@ -175,7 +178,8 @@ class Client:
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def options(self, url,
+    def options(self,
+                url,
                 params=None,
                 headers=None,
                 cookies=None,
@@ -210,7 +214,8 @@ class Client:
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def get(self, url,
+    def get(self,
+            url,
             params=None,
             headers=None,
             cookies=None,
@@ -237,14 +242,16 @@ class Client:
 
         :return requests.Response
         """
-        return self.request("GET", url,
+        return self.request("GET",
+                            url,
                             params=params,
                             headers=headers,
                             cookies=cookies,
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def post(self, url,
+    def post(self,
+             url,
              params=None,
              headers=None,
              cookies=None,
@@ -294,7 +301,8 @@ class Client:
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def put(self, url,
+    def put(self,
+            url,
             params=None,
             headers=None,
             cookies=None,
@@ -344,7 +352,8 @@ class Client:
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def patch(self, url,
+    def patch(self,
+              url,
               params=None,
               headers=None,
               cookies=None,
@@ -394,7 +403,8 @@ class Client:
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
-    def delete(self, url,
+    def delete(self,
+               url,
                params=None,
                headers=None,
                cookies=None,
