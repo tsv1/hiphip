@@ -17,7 +17,10 @@ class Response(requests.Response):
         if content_type.startswith("text/") or content_type.endswith("/text"):
             r += "\n" + str(self.text)
         elif content_type.startswith("application/json"):
-            text = json.loads(self.text) if self.text else ""
+            try:
+                text = json.loads(self.text)
+            except:
+                text = ""
             r += "\n" + json.dumps(text, sort_keys=True, ensure_ascii=False, indent=2)
 
         return r
