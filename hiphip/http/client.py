@@ -72,6 +72,7 @@ class Client:
                 data=None,
                 form=None,
                 json=None,
+                raw=None,
                 timeout=None,
                 allow_redirects=False,
                 **kwargs):
@@ -121,6 +122,8 @@ class Client:
             headers["content-type"] = "application/json"
         elif data is not None:
             data = self.__patch_data(data)
+        elif raw is not None:
+            data = raw
 
         response = requests.request(method=method,
                                     url=url,
@@ -258,6 +261,7 @@ class Client:
              data=None,
              form=None,
              json=None,
+             raw=None,
              timeout=None,
              allow_redirects=False):
         """
@@ -298,6 +302,7 @@ class Client:
                             data=data,
                             form=form,
                             json=json,
+                            raw=raw,
                             timeout=timeout,
                             allow_redirects=allow_redirects)
 
