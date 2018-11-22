@@ -6,7 +6,7 @@ import requests
 
 class Response(requests.Response):
     def __repr__(self):
-        def _log_resp(headers, body):
+        def _log_body(headers, body):
             r = ""
 
             request_content_type = headers.get("content-type", "text/plain").lower()
